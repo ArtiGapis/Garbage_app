@@ -1,11 +1,9 @@
-
 from datetime import datetime
 import json
 import gdown
 import os
 import time
 import tkinter as tk
-
 
 
 def reader(file):
@@ -81,13 +79,13 @@ def get_mod_date():
     print(f"Last modified time of '{file_path}': {readable_time}")
 
 
-def trash_by_day(today, window, header_font):
+def trash_by_day(today, window, header_font, day):
     if not garbages_today(today):
         garbage_sms_today = tk.Label(window,
-                                     text=f'Šiandien ({today.year}-{today.month}-{today.day})\n šiukšlės nevežamos',
+                                     text=f'{day} ({today.year}-{today.month}-{today.day})\n šiukšlės nevežamos',
                                      font=header_font)
     else:
-        garbage_sms_today = tk.Label(window, text=f'Šiandien ({today.year}-{today.month}-{today.day}) vežamos'
+        garbage_sms_today = tk.Label(window, text=f'{day} ({today.year}-{today.month}-{today.day}) vežamos'
                                                   f'\n {garbages_today(today)}')
     garbage_sms_today.pack(pady=20)
 
